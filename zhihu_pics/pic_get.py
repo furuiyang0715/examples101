@@ -1,29 +1,17 @@
 import json
-import pprint
-import sys
-import time
-
 import requests
 from lxml import html
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36",
-
-
-
 }
 
 
 def download_picture(url):
-    print(url)
     pic_name = url.split("/")[-1]
-    print(pic_name)
     content = requests.get(url, headers=headers).content
-    print(content)
-    # with open("/Users/furuiyang/mydata/zhihupic/{}".format(pic_name), "wb") as f:
     with open("/Users/furuiyang/Desktop/zhihu/{}".format(pic_name), "wb") as f:
         f.write(content)
-    print()
 
 
 def crawl(offset):
@@ -45,7 +33,8 @@ def crawl(offset):
 
 
 def main():
-    for i in range(1):
+    # 根据页面问题的个数进行调整
+    for i in range(0, 4):
         crawl(i*20)
 
 
