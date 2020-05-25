@@ -18,11 +18,12 @@ def download_picture(url):
     print(url)
     pic_name = url.split("/")[-1]
     print(pic_name)
-    time.sleep(2)
-    content = requests.get(url).content
+    content = requests.get(url, headers=headers).content
+    print(content)
     # with open("/Users/furuiyang/mydata/zhihupic/{}".format(pic_name), "wb") as f:
     with open("/Users/furuiyang/Desktop/zhihu/{}".format(pic_name), "wb") as f:
         f.write(content)
+    print()
 
 
 def crawl(offset):
@@ -49,13 +50,14 @@ def main():
 
 
 def t_test():
-    url = 'https://pic2.zhimg.com/50/v2-eef034a57bcab90d62bb1442bb52527c_hd.jpg'
-    content = requests.get(url).content
+    url = 'https://pic1.zhimg.com/50/v2-6903b90b39babdfd4bfe1bb602ddd791_hd.jpg'
+    resp = requests.get(url)
+    content = resp.content
     with open('temp.jpg', "wb") as f:
         f.write(content)
 
 
 if __name__ == "__main__":
-    # main()
+    main()
 
-    t_test()
+    # t_test()
