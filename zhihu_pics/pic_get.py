@@ -38,15 +38,7 @@ def main():
         crawl(i*20)
 
 
-def t_test():
-    url = 'https://pic1.zhimg.com/50/v2-6903b90b39babdfd4bfe1bb602ddd791_hd.jpg'
-    resp = requests.get(url)
-    content = resp.content
-    with open('temp.jpg', "wb") as f:
-        f.write(content)
-
-
 if __name__ == "__main__":
     main()
 
-    # t_test()
+# ls -l | grep "^-" | wc -l
